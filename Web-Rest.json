@@ -1,0 +1,73 @@
+{
+  "id": "azure",
+  "groups": [
+    {
+      "apps": [
+        {
+          "id": "restclient",
+          "cpus": 0.2,
+          "mem": 500,
+          "instances": 1,
+          "ports": [
+            80
+          ],
+          "requirePorts": true,
+          "container": {
+            "docker": {
+              "image": "cathttqq/goweb",
+              "network": "HOST",
+              "forcePullImage": true
+            },
+            "type": "DOCKER"
+          },
+          "dependencies": [
+            "/azure/demo/restservice"
+          ]
+        },
+        {
+          "id": "restservice",
+          "cpus": 0.5,
+          "mem": 500,
+          "instances": 1,
+          "ports": [
+            5000
+          ],
+          "requirePorts": true,
+          "container": {
+            "docker": {
+              "image": "cathttqq/restapp",
+              "network": "HOST",
+              "forcePullImage": true
+            },
+            "type": "DOCKER"
+          }
+        },
+        {
+          "id": "lb",
+          "cpus": 0.5,
+          "mem": 500,
+          "instances": 1,
+          "ports": [
+            80
+          ],
+          "env": {
+            "BACKENDS": "restclient-demo-azure.marathon.mesos:80"
+          },
+          "requirePorts": true,
+          "container": {
+            "docker": {
+              "image": "eeacms/haproxy",
+              "network": "HOST"
+            },
+            "type": "DOCKER"
+          },
+          "dependencies": [
+            "/azure/demo/restclient"
+          ]
+        }
+      ],
+      "id": "demo"
+    }
+  ]
+}
+
