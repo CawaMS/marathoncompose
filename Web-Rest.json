@@ -14,7 +14,7 @@
           "requirePorts": true,
           "container": {
             "docker": {
-              "image": "cathttqq/goweb_atm",
+              "image": "cathttqq/goweb",
               "network": "HOST",
               "forcePullImage": true
             },
@@ -35,7 +35,7 @@
           "requirePorts": true,
           "container": {
             "docker": {
-              "image": "cathttqq/restapp_atm",
+              "image": "cathttqq/restapp",
               "network": "HOST",
               "forcePullImage": true
             },
