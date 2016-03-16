@@ -22,7 +22,11 @@
           },
           "dependencies": [
             "/azure/demo/restservice"
-          ]
+          ],
+          "upgradeStrategy": {
+            "minimumHealthCapacity": 1,
+            "maximumOverCapacity": 0
+          }
         },
         {
           "id": "restservice",
@@ -40,6 +44,10 @@
               "forcePullImage": true
             },
             "type": "DOCKER"
+          },
+          "upgradeStrategy": {
+            "minimumHealthCapacity": 1,
+            "maximumOverCapacity": 0
           }
         },
         {
@@ -66,11 +74,8 @@
           ]
         }
       ],
-      "id": "demo",
-      "upgradeStrategy": {
-        "minimumHealthCapacity": 1,
-        "maximumOverCapacity": 0
-      }
+      "id": "demo"
+      
     }
   ]
 }
