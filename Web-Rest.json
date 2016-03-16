@@ -7,7 +7,7 @@
           "id": "restclient",
           "cpus": 0.2,
           "mem": 500,
-          "instances": 2,
+          "instances": 1,
           "ports": [
             80
           ],
@@ -28,7 +28,7 @@
           "id": "restservice",
           "cpus": 0.5,
           "mem": 500,
-          "instances": 2,
+          "instances": 1,
           "ports": [
             5000
           ],
@@ -68,7 +68,8 @@
       ],
       "id": "demo",
       "upgradeStrategy": {
-        "minimumHealthCapacity": 0.5
+        "minimumHealthCapacity": 1,
+        "maximumOverCapacity": 0
       }
     }
   ]
