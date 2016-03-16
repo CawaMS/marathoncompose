@@ -46,7 +46,7 @@
           "id": "lb",
           "cpus": 0.5,
           "mem": 500,
-          "instances": 2,
+          "instances": 1,
           "ports": [
             80
           ],
